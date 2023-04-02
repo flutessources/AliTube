@@ -1,0 +1,11 @@
+﻿<video id="videostream" class="videostyle" oncontextmenu="return false;" controls disablePictureInPicture controlsList="nodownload">
+    <source src="@GetUrl()" type="video/mp4" />
+    Your browser does not support the video tag.
+</video>
+
+@code {
+    [Parameter]
+    public int MovieId { get; set; }
+
+    public string GetUrl() => $"https://localhost:5001/Stream?movie_id={MovieId}";
+}

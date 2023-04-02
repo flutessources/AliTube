@@ -1,0 +1,24 @@
+﻿@using AliTube.Data;
+@inject NavigationManager NavManager
+
+<div class="gui-card" @onclick="@OnClick">
+	<div class="gui-card__media">
+		<img class="gui-card__img" src="@Movie.ImageUrl" onerror="this.src='https://yts.torrentbay.to/assets/images/movies/murder_mystery_2_2023/medium-cover.jpg'" alt="" />
+	</div>
+	<div class="gui-card__details">
+		<div class="gui-card__title">
+			@Movie.Title
+		</div>
+	</div>
+</div>
+@*<MudImage @onclick="@OnClick" Src="@Movie.ImageUrl"></MudImage>*@
+
+@code {
+	[Parameter]
+	public MovieData Movie { get; set; }
+
+	private void OnClick()
+	{
+		NavManager.NavigateTo($"/movie/{Movie.Id}");
+	}
+}

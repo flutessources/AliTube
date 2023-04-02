@@ -1,0 +1,47 @@
+﻿@using AliTube.Data;
+
+<div class="contain">
+
+    
+  <div class="slider">
+@*      <h3>Ação</h3>*@
+        <span onmouseover="scrollMoviesLeft('@CategoryName')" onmouseout="clearScroll()" class="handle handlePrev active">
+            <MudIcon Icon="@Icons.Material.Filled.ArrowLeft"></MudIcon>
+      </span>
+
+      <div id="scroller-@CategoryName" class="row">
+        <div class="row__inner">
+    @foreach (var movie in Movies)
+    {
+        <MovieFrame Movie="movie"></MovieFrame>
+    }
+       </div>
+
+      </div>
+        <span onmouseover="scrollMoviesRight('@CategoryName')" onmouseout="clearScroll()" class="handle handleNext active">
+            <MudIcon Icon="@Icons.Material.Filled.ArrowRight"></MudIcon>
+      </span>
+    </div>
+
+</div>
+
+@code {
+    [Parameter]
+    public string CategoryName { get; set; }
+    [Parameter]
+    public IReadOnlyCollection<MovieData> Movies { get; set; }
+
+    private bool m_arrowLeftIsHidden = true;
+
+    private void OnMouseOverArrow()
+    {
+        m_arrowLeftIsHidden = false;
+        this.StateHasChanged();
+    }
+
+    private void OnMouseOutArrow()
+    {
+        m_arrowLeftIsHidden = true;
+        this.StateHasChanged();
+    }
+}

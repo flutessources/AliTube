@@ -1,0 +1,81 @@
+﻿@using AliTube.Core.Scrapping.YTS;
+@using AliTube.Core.Scrapping;
+
+@*<ScrappingProgressBar OnProgressAction="@m_onProgressAction" />*@
+<MudProgressLinear Color="Color.Info" Size="Size.Large" Value="@m_progressValue" Class="my-7">
+	<MudText Typo="Typo.subtitle1" Color="Color.Dark">
+		<b>@m_current / @m_total</b>
+	</MudText>
+</MudProgressLinear>
+<MudButton ButtonType="MudBlazor.ButtonType.Button" Color="MudBlazor.Color.Primary" OnClick="async () => await OnClickScrapping()">
+	@if (m_onScrapping)
+	{
+		<b>Stop scrapping</b>
+	}
+	@if (m_onScrapping == false)
+	{
+		<b>Start scrapping</b>
+	}
+</MudButton>
+
+@code {
+	private IMoviesScrapper m_scrapper = new YTSMoviesScrapper();
+	private bool m_onScrapping;
+
+	private int m_progressValue = 0;
+	private int m_current;
+	private int m_total;
+
+
+	protected override void OnInitialized()
+	{
+		m_scrapper.OnFinish += OnScrapperFinish;
+	}
+
+	private async Task OnClickScrapping()
+	{
+		if (m_onScrapping)
+		{
+			m_scrapper.Stop();
+		}
+		else
+		{
+			m_scrapper.Scrapping(async (current, total) =>
+			{
+				await OnProgress(current, total);
+			});
+		}
+
+		m_onScrapping = true;
+
+		await this.InvokeAsync(() =>
+			StateHasChanged()
+		);
+	}
+
+	private async Task OnProgress(int current, int total)
+	{
+		Console.WriteLine("OnProgress (view)");
+
+		m_current = current;
+		m_total = total;
+		m_progressValue = (int)((float)current / total * 100);
+
+		await this.InvokeAsync(() =>
+		{
+			this.StateHasChanged();
+		});
+	}
+
+	private void OnScrapperFinish(bool result)
+	{
+		m_onScrapping = false;
+
+		Console.WriteLine("Scrapper finish");
+
+		this.InvokeAsync(() =>
+			StateHasChanged()
+		);
+		
+	}
+}

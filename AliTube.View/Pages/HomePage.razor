@@ -1,0 +1,51 @@
+﻿@using AliTube.Data;
+@using AliTube.Core.Database;
+
+@*@foreach(var movie in m_movies)
+{
+	<MovieFrame Movie="@movie"></MovieFrame>
+}*@
+
+<div style="width:100vw;height:100vh;margin:0px;padding:0px;">
+
+	<MudAppBar Color="Color.Transparent" Fixed="false">
+		<MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" />
+		<MudSpacer />
+		<MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" />
+	</MudAppBar>
+
+<MovieList CategoryName="Comedy" Movies="@m_movies1"></MovieList>
+<MovieList CategoryName="Drama" Movies="@m_movies2"></MovieList>
+<MovieList CategoryName="Thriller" Movies="@m_movies3"></MovieList>
+</div>
+
+@code {
+	private IReadOnlyCollection<MovieData> m_movies1 = new List<MovieData>();
+	private IReadOnlyCollection<MovieData> m_movies2 = new List<MovieData>();
+	private IReadOnlyCollection<MovieData> m_movies3 = new List<MovieData>();
+
+	protected override async Task OnInitializedAsync()
+	{
+		var movies1 = await MovieDatabase.GetMovies(1, 10,
+			new MovieOrder() { OrderType = EMovieOrder.Rating },
+			new List<MovieFilter>() {
+				new MovieFilter() { Filter = EMovieFilter.Genre, Value = "comedy" } });
+				
+		var movies2 = await MovieDatabase.GetMovies(1, 10,
+			new MovieOrder() { OrderType = EMovieOrder.Rating },
+			new List<MovieFilter>() {
+				new MovieFilter() { Filter = EMovieFilter.Genre, Value = "drama" } });
+				
+		var movies3 = await MovieDatabase.GetMovies(1, 10,
+			new MovieOrder() { OrderType = EMovieOrder.Rating },
+			new List<MovieFilter>() {
+				new MovieFilter() { Filter = EMovieFilter.Genre, Value = "thriller" } });
+		
+		if (movies1 != null && movies2 != null && movies3 != null)
+		{
+			m_movies1 = movies1;
+			m_movies2 = movies2;
+			m_movies3 = movies3;
+		}
+	}
+}

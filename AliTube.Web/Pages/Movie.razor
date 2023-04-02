@@ -1,0 +1,10 @@
+﻿@page "/movie/{MovieId}"
+
+<MoviePage MovieId="@GetMovieId()"></MoviePage>
+
+@code {
+	[Parameter]
+	public string MovieId { get; set; } 
+
+	public int GetMovieId() => int.Parse(MovieId);
+}

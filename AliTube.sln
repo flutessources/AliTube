@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AliTube.API", "AliTube.API\AliTube.API.csproj", "{DA82FFFE-725F-409E-8ACE-D7BD1850E6D6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AliTube.Core", "AliTube.Core\AliTube.Core.csproj", "{6F62464C-10CB-4940-A282-315290BC7A98}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AliTube.TorrentStream", "AliTube.TorrentStream\AliTube.TorrentStream.csproj", "{F9152CE5-BE5E-49FA-BFD6-F21A23011A68}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AliTube.View", "AliTube.View\AliTube.View.csproj", "{D4DAB566-0451-492A-824F-F3B777990408}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AliTube.Web", "AliTube.Web\AliTube.Web.csproj", "{EE8CD7FC-4514-4766-975D-370B45A21A6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AliTube.Data", "AliTube.Data\AliTube.Data.csproj", "{DE8CFE05-FF8D-4294-AAE5-9B315AB8010B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA82FFFE-725F-409E-8ACE-D7BD1850E6D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA82FFFE-725F-409E-8ACE-D7BD1850E6D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA82FFFE-725F-409E-8ACE-D7BD1850E6D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA82FFFE-725F-409E-8ACE-D7BD1850E6D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F62464C-10CB-4940-A282-315290BC7A98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F62464C-10CB-4940-A282-315290BC7A98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F62464C-10CB-4940-A282-315290BC7A98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F62464C-10CB-4940-A282-315290BC7A98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9152CE5-BE5E-49FA-BFD6-F21A23011A68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9152CE5-BE5E-49FA-BFD6-F21A23011A68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9152CE5-BE5E-49FA-BFD6-F21A23011A68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9152CE5-BE5E-49FA-BFD6-F21A23011A68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4DAB566-0451-492A-824F-F3B777990408}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4DAB566-0451-492A-824F-F3B777990408}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4DAB566-0451-492A-824F-F3B777990408}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4DAB566-0451-492A-824F-F3B777990408}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE8CD7FC-4514-4766-975D-370B45A21A6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE8CD7FC-4514-4766-975D-370B45A21A6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE8CD7FC-4514-4766-975D-370B45A21A6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE8CD7FC-4514-4766-975D-370B45A21A6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE8CFE05-FF8D-4294-AAE5-9B315AB8010B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE8CFE05-FF8D-4294-AAE5-9B315AB8010B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE8CFE05-FF8D-4294-AAE5-9B315AB8010B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE8CFE05-FF8D-4294-AAE5-9B315AB8010B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3838EE41-417D-414E-891A-0D885ED8580B}
+	EndGlobalSection
+EndGlobal

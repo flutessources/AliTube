@@ -1,0 +1,42 @@
+﻿@implements IDisposable
+
+<MudProgressLinear Color="Color.Info" Size="Size.Large" Value="@m_progressValue" Class="my-7">
+    <MudText Typo="Typo.subtitle1" Color="Color.Dark">
+        <b>@m_current / @m_total</b>
+    </MudText>
+</MudProgressLinear>
+
+@code {
+	[Parameter]
+	public Action<int, int> OnProgressAction { get; set; }
+
+	private int m_progressValue = 0;
+	private int m_current;
+	private int m_total;
+
+	protected override void OnInitialized()
+	{
+		Console.WriteLine("OnInitialized (progressbar view)");
+		OnProgressAction += OnProgress;
+	}
+
+	private void OnProgress(int current, int total)
+	{
+		Console.WriteLine("OnProgress (view)");
+
+		m_current = current;
+		m_total = total;
+		m_progressValue = (int)((float)current / total * 100);
+
+		this.InvokeAsync(() =>
+		{
+			this.StateHasChanged();
+		});
+	}
+
+	public void Dispose()
+	{
+		Console.WriteLine("Dispose (progressbar view)");
+		OnProgressAction -= OnProgress;
+	}
+}
